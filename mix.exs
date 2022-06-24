@@ -45,6 +45,7 @@ defmodule Sgiath.Umbrella.MixProject do
   end
 
   defp deploy(_args) do
+    Mix.shell().cmd("git reset --hard")
     Mix.Task.run("setup")
     Mix.Task.run("release")
     Mix.shell().cmd("./release/bin/sgiath restart")

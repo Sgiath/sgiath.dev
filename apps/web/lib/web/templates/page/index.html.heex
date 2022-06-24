@@ -1,41 +1,55 @@
-<section class="phx-hero">
-  <h1>Welcome to Phoenix!</h1>
-  <p>Peace of mind from prototype to production</p>
-</section>
+<main class="two-columns">
+  <section>
+    <h2>about me</h2>
+    <p>~>H - on the mission to figure out if and how technology can bring me immortality</p>
 
-<section class="row">
-  <article class="column">
-    <h2>Resources</h2>
+    <h3>influential figures (in chronological order)</h3>
+    <ul>
+      <%= for {text, link} <- @influencers do %>
+        <li><Link.external text={text} to={link} /></li>
+      <% end %>
+    </ul>
+  </section>
+
+  <section>
+    <h2>contact</h2>
+    <ul>
+      <%= for {technology, handle, href} <- @contacts do %>
+        <li><%= technology %> - <%= link handle, to: href %></li>
+      <% end %>
+    </ul>
+
+    <h2>social media</h2>
     <ul>
       <li>
-        <a href="https://hexdocs.pm/phoenix/overview.html">Guides &amp; Docs</a>
+        Twitter - <Link.external text="@SgiathDev" to="https://twitter.com/SgiathDev" />
       </li>
       <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
+        XMPP - <a href="xmpp:sgiath@sgiath.dev">sgiath@sgiath.dev</a>
       </li>
       <li>
-        <a href="https://github.com/phoenixframework/phoenix/blob/v1.6/CHANGELOG.md">v1.6 Changelog</a>
+        Matrix - <Link.external text="@sgiath:sgiath.dev" to="https://matrix.to/#/@sgiath:sgiath.dev" />
+      </li>
+      <li>
+        Keybase - <Link.external text="sgiath" to="https://keybase.io/sgiath" />
       </li>
     </ul>
-  </article>
-  <article class="column">
-    <h2>Help</h2>
+
+    <h2>other links</h2>
     <ul>
       <li>
-        <a href="https://elixirforum.com/c/phoenix-forum">Forum</a>
+        SourceHut - <Link.external text="~sgiath" to="https://git.sr.ht/~sgiath/" />
       </li>
       <li>
-        <a href="https://web.libera.chat/#elixir">#elixir on Libera Chat (IRC)</a>
+        PGP - <a href="/sgiath.asc">0x70F9C7DE34CB3BC8</a>
       </li>
       <li>
-        <a href="https://twitter.com/elixirphoenix">Twitter @elixirphoenix</a>
-      </li>
-      <li>
-        <a href="https://elixir-slackin.herokuapp.com/">Elixir on Slack</a>
-      </li>
-      <li>
-        <a href="https://discord.gg/elixir">Elixir on Discord</a>
+        Bitcoin
+        <ul>
+          <li><Link.external text="+patientmud1EB" to="https://paynym.is/+patientmud1EB" /> (PayNym)</li>
+          <li><Link.external text="donate.sgiath.dev" to="https://donate.sgiath.dev" /> (P2WPKH)</li>
+        </ul>
       </li>
     </ul>
-  </article>
-</section>
+  </section>
+</main>

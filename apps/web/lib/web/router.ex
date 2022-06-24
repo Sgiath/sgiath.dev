@@ -10,14 +10,12 @@ defmodule Web.Router do
     plug :put_secure_browser_headers
   end
 
-  pipeline :api do
-    plug :accepts, ["json"]
-  end
-
   scope "/", Web do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/now", PageController, :now
+    get "/uses", PageController, :uses
   end
 
   if Mix.env() in [:dev, :test] do

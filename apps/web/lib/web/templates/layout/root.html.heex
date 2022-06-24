@@ -3,28 +3,41 @@
   <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+
     <meta name="csrf-token" content={csrf_token_value()}>
-    <%= live_title_tag assigns[:page_title] || "Sgiath", suffix: " · Phoenix Framework" %>
+    <link rel="canonical" href="https://sgiath.dev" />
+    <meta name="description" content="My personal page, don't expect much" />
+    <%= live_title_tag assigns[:page_title] || "sgiath.dev", suffix: " · sgiath.dev" %>
+
+    <link rel="icon" type="image/png" href={Routes.static_path(@conn, "/icons/favicon-16x16.png")} sizes="16x16">
+    <link rel="icon" type="image/webp" href={Routes.static_path(@conn, "/icons/favicon-16x16.webp")} sizes="16x16">
+    <link rel="icon" type="image/png" href={Routes.static_path(@conn, "/icons/favicon-32x32.png")} sizes="32x32">
+    <link rel="icon" type="image/webp" href={Routes.static_path(@conn, "/icons/favicon-32x32.webp")} sizes="32x32">
+
     <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>
     <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
   </head>
   <body>
-    <header>
-      <section class="container">
-        <nav>
-          <ul>
-            <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
-            <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
-              <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home) %></li>
-            <% end %>
-          </ul>
-        </nav>
-        <a href="https://phoenixframework.org/" class="phx-logo">
-          <img src={Routes.static_path(@conn, "/images/phoenix.png")} alt="Phoenix Framework Logo"/>
-        </a>
-      </section>
-    </header>
+    <nav>
+      <header>
+        <h1><a href="/">sgiath.dev</a></h1>
+        <aside><em>cyberpunk,&nbsp;cryptoanarchy,&nbsp;transhumanism</em></aside>
+      </header>
+
+      <%= link "home", to: Routes.page_path(@conn, :index), class: "nav-link" %>
+      <%= link "now", to: Routes.page_path(@conn, :now), class: "nav-link" %>
+      <%= link "uses", to: Routes.page_path(@conn, :uses), class: "nav-link" %>
+      <%= link "presentations", to: "/presentations/", class: "nav-link" %>
+
+      <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
+        <%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home), class: "nav-link" %>
+      <% end %>
+    </nav>
+
     <%= @inner_content %>
+
+    <footer>The Times 03/Jan/2009 Chancellor on brink of second bailout for banks</footer>
   </body>
 </html>
