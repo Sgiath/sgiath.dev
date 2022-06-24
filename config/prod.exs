@@ -10,7 +10,7 @@ import Config
 # which you should run after static files are built and
 # before starting your production server.
 config :web, Web.Endpoint,
-  url: [host: "sgiath.dev", port: 443],
+  url: [scheme: "https", host: "sgiath.dev", port: 443],
   force_ssl: [hsts: true],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
