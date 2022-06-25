@@ -18,7 +18,19 @@ defmodule Web.PageController do
       {"Email", "sgiath@sgiath.dev", "mailto:sgiath@sgiath.dev"}
     ]
 
-    render(conn, "index.html", page_title: "home", influencers: influencers, contacts: contacts)
+    social = [
+      {"Twitter", "@SgiathDev", "https://twitter.com/SgiathDev"},
+      {"XMPP", "sgiath@sgiath.dev", "xmpp:sgiath@sgiath.dev"},
+      {"Matrix", "@sgiath:sgiath.dev", "https://matrix.to/#/@sgiath:sgiath.dev"},
+      {"Keybase", "sgiath", "https://keybase.io/sgiath"}
+    ]
+
+    render(conn, "index.html",
+      page_title: "home",
+      influencers: influencers,
+      contacts: contacts,
+      social: social
+    )
   end
 
   def now(conn, _params) do

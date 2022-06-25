@@ -23,7 +23,7 @@ config :web, Web.Endpoint,
 config :web, Web.Endpoint,
   live_reload: [
     patterns: [
-      ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
+      ~r"priv/static/.*(js|css|webp|png|jpeg|jpg|gif|svg)$",
       ~r"lib/web/(live|views)/.*(ex)$",
       ~r"lib/web/templates/.*(eex)$"
     ]

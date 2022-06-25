@@ -21,18 +21,9 @@
 
     <h2>social media</h2>
     <ul>
-      <li>
-        Twitter - <Link.external text="@SgiathDev" to="https://twitter.com/SgiathDev" />
-      </li>
-      <li>
-        XMPP - <a href="xmpp:sgiath@sgiath.dev">sgiath@sgiath.dev</a>
-      </li>
-      <li>
-        Matrix - <Link.external text="@sgiath:sgiath.dev" to="https://matrix.to/#/@sgiath:sgiath.dev" />
-      </li>
-      <li>
-        Keybase - <Link.external text="sgiath" to="https://keybase.io/sgiath" />
-      </li>
+      <%= for {page, handle, href} <- @social do %>
+        <li><%= page %> - <Link.external text={handle} to={href} /></li>
+      <% end %>
     </ul>
 
     <h2>other links</h2>
@@ -41,7 +32,7 @@
         SourceHut - <Link.external text="~sgiath" to="https://git.sr.ht/~sgiath/" />
       </li>
       <li>
-        PGP - <a href="/sgiath.asc">0x70F9C7DE34CB3BC8</a>
+        PGP - <%= link "0x70F9C7DE34CB3BC8", to: "/sgiath.asc" %>
       </li>
       <li>
         Bitcoin
