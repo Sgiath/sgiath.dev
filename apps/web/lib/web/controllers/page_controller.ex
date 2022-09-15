@@ -13,15 +13,15 @@ defmodule Web.PageController do
 
     contacts = [
       {"Web", "sgiath.dev", "https://sgiath.dev"},
-      {"Tor", Phoenix.HTML.raw("uckdsard[&hellip;]nyd.onion"),
-       "http://uckdsardwfzfg3v5apl3lnm5p5irllqiwvia4olanhnbn5eselrftnyd.onion/"},
+      # {"Tor", Phoenix.HTML.raw("uckdsard[&hellip;]nyd.onion"),
+      #  "http://uckdsardwfzfg3v5apl3lnm5p5irllqiwvia4olanhnbn5eselrftnyd.onion/"},
       {"Email", "sgiath@sgiath.dev", "mailto:sgiath@sgiath.dev"}
     ]
 
     social = [
       {"Twitter", "@SgiathDev", "https://twitter.com/SgiathDev"},
       {"XMPP", "sgiath@sgiath.dev", "xmpp:sgiath@sgiath.dev"},
-      {"Matrix", "@sgiath:sgiath.dev", "https://matrix.to/#/@sgiath:sgiath.dev"},
+      # {"Matrix", "@sgiath:sgiath.dev", "https://matrix.to/#/@sgiath:sgiath.dev"},
       {"Keybase", "sgiath", "https://keybase.io/sgiath"}
     ]
 

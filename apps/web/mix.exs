@@ -6,11 +6,10 @@ defmodule Web.MixProject do
       # Application config
       app: :web,
       version: "0.1.0",
-      elixir: "~> 1.13",
+      elixir: "~> 1.14",
 
       # Elixir config
       elixirc_paths: elixirc_paths(Mix.env()),
-      compilers: Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps(),
@@ -39,12 +38,12 @@ defmodule Web.MixProject do
       {:sgiath, in_umbrella: true},
 
       # Phoenix
-      {:phoenix, "~> 1.6.10"},
+      {:phoenix, "~> 1.6"},
       {:phoenix_html, "~> 3.0"},
-      {:phoenix_live_view, "~> 0.17.5"},
+      {:phoenix_live_view, "~> 0.17"},
       {:phoenix_live_dashboard, "~> 0.6"},
       {:esbuild, "~> 0.4", runtime: Mix.env() == :dev},
-      {:jason, "~> 1.2"},
+      {:jason, "~> 1.4"},
       {:plug_cowboy, "~> 2.5"},
 
       # Telemetry
@@ -55,7 +54,7 @@ defmodule Web.MixProject do
       {:phoenix_live_reload, "~> 1.2", only: :dev},
 
       # Tests
-      {:floki, ">= 0.30.0", only: :test}
+      {:floki, ">= 0.33", only: :test}
     ]
   end
 

@@ -6,7 +6,7 @@
     <h3>influential figures (in chronological order)</h3>
     <ul>
       <%= for {text, link} <- @influencers do %>
-        <li><Link.external text={text} to={link} /></li>
+        <li><Link.external to={link}><%= text %></Link.external></li>
       <% end %>
     </ul>
   </section>
@@ -22,14 +22,14 @@
     <h2>social media</h2>
     <ul>
       <%= for {page, handle, href} <- @social do %>
-        <li><%= page %> - <Link.external text={handle} to={href} /></li>
+        <li><%= page %> - <Link.external to={href}><%= handle %></Link.external></li>
       <% end %>
     </ul>
 
     <h2>other links</h2>
     <ul>
       <li>
-        SourceHut - <Link.external text="~sgiath" to="https://git.sr.ht/~sgiath/" />
+        SourceHut - <Link.external to="https://git.sr.ht/~sgiath/">~sgiath</Link.external>
       </li>
       <li>
         PGP - <%= link "0x70F9C7DE34CB3BC8", to: "/sgiath.asc" %>
@@ -37,8 +37,12 @@
       <li>
         Bitcoin
         <ul>
-          <li><Link.external text="+patientmud1EB" to="https://paynym.is/+patientmud1EB" /> (PayNym)</li>
-          <li><Link.external text="donate.sgiath.dev" to="https://donate.sgiath.dev" /> (P2WPKH)</li>
+          <li>
+            <Link.external to="https://paynym.is/+patientmud1EB">+patientmud1EB</Link.external> (PayNym)
+          </li>
+          <li>
+            <Link.external to="https://donate.sgiath.dev">donate.sgiath.dev</Link.external> (P2WPKH)
+          </li>
         </ul>
       </li>
     </ul>

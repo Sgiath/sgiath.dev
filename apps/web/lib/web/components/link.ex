@@ -3,7 +3,7 @@ defmodule Web.Components.Link do
 
   def external(assigns) do
     ~H"""
-    <a target="_blank" rel="noopener noreferrer" href={@to}><%= @text %></a>
+    <a target="_blank" rel="noopener noreferrer" href={@to}><%= render_slot(@inner_block) %></a>
     """
   end
 end

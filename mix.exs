@@ -17,7 +17,7 @@ defmodule Sgiath.Umbrella.MixProject do
       releases: [
         sgiath: [
           path: "release",
-          steps: [&assets/1, :assemble, :tar],
+          steps: [&assets/1, :assemble, :tar, &upload/1],
           include_executables_for: [:unix],
           applications: [
             sgiath: :permanent,
@@ -34,8 +34,7 @@ defmodule Sgiath.Umbrella.MixProject do
 
   defp aliases do
     [
-      setup: ["cmd mix setup"],
-      deploy: &deploy/1
+      setup: ["cmd mix setup"]
     ]
   end
 
@@ -44,10 +43,12 @@ defmodule Sgiath.Umbrella.MixProject do
     release
   end
 
-  defp deploy(_args) do
-    Mix.shell().cmd("git reset --hard")
-    Mix.Task.run("setup")
-    Mix.Task.run("release")
-    Mix.shell().cmd("./release/bin/sgiath restart")
+  defp upload(release) do
+    dest = "/data/sgiath.dev"
+    name = "#{release.name}-#{release.version}.tar.gz"
+    Mix.shell().cmd("scp #{release.path}/#{name} sgiath.dev:#{dest}")
+    Mix.shell().cmd("ssh sgiath.dev 'cd #{dest} && tar zxvf #{name}'")
+    Mix.shell().cmd("ssh sgiath.dev 'sudo systemctl restart sgiath-web.service'")
+    release
   end
 end
