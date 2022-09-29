@@ -54,7 +54,7 @@ defmodule Web.MixProject do
       {:phoenix_live_reload, "~> 1.2", only: :dev},
 
       # Tests
-      {:floki, ">= 0.33", only: :test}
+      {:floki, ">= 0.33.0", only: :test}
     ]
   end
 
