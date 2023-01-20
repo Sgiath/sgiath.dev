@@ -8,7 +8,7 @@ defmodule Web.PageController do
       {"Jocko Willing", "https://www.youtube.com/channel/UCkqcY4CAuBFNFho6JgygCnA"},
       {"Michael Malice", "https://twitter.com/michaelmalice"},
       {"Smuggler", "https://www.youtube.com/channel/UCt-FpIueu3zuXjtOTYDo3Rw"},
-      {"Olga Ukolova", "https://twitter.com/OlUkolova"}
+      {"Olga Ukolova", "https://twitter.com/dr_ukolova"}
     ]
 
     contacts = [
@@ -19,9 +19,10 @@ defmodule Web.PageController do
     ]
 
     social = [
+      {"Nostr", Phoenix.HTML.raw("00000[&hellip;]90672"),
+       "https://astral.ninja/0000002855ad7906a7568bf4d971d82056994aa67af3cf0048a825415ac90672"},
       {"Twitter", "@SgiathDev", "https://twitter.com/SgiathDev"},
       {"XMPP", "sgiath@sgiath.dev", "xmpp:sgiath@sgiath.dev"},
-      # {"Matrix", "@sgiath:sgiath.dev", "https://matrix.to/#/@sgiath:sgiath.dev"},
       {"Keybase", "sgiath", "https://keybase.io/sgiath"}
     ]
 
@@ -39,5 +40,9 @@ defmodule Web.PageController do
 
   def uses(conn, _params) do
     render(conn, "uses.html", page_title: "uses")
+  end
+
+  def nostr(conn, _params) do
+    render(conn, "nostr.html", page_title: "nostr")
   end
 end

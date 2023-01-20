@@ -29,7 +29,11 @@ defmodule Sgiath.Umbrella.MixProject do
   end
 
   defp deps do
-    []
+    [
+      {:phoenix, "~> 1.7.0-rc.2", override: true},
+      # Required to run "mix format" on ~H/.heex files from the umbrella root
+      {:phoenix_live_view, "~> 0.18", override: true}
+    ]
   end
 
   defp aliases do

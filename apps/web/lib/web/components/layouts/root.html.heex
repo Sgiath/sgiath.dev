@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" style="scrollbar-gutter: stable;">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+
+    <meta name="csrf-token" content={get_csrf_token()} />
+    <link rel="canonical" href="https://sgiath.dev" />
+    <meta name="description" content="My personal page, don't expect much" />
+
+    <.live_title>
+      <%= assigns[:page_title] || "sgiath.dev" %>
+    </.live_title>
+
+    <link rel="icon" type="image/png" href={~p"/icons/favicon-16x16.png"} sizes="16x16" />
+    <link rel="icon" type="image/webp" href={~p"/icons/favicon-16x16.webp"} sizes="16x16" />
+    <link rel="icon" type="image/png" href={~p"/icons/favicon-32x32.png"} sizes="32x32" />
+    <link rel="icon" type="image/webp" href={~p"/icons/favicon-32x32.webp"} sizes="32x32" />
+
+    <link phx-track-static rel="stylesheet" href={~p"/assets/app.css"} />
+    <script defer phx-track-static type="text/javascript" src={~p"/assets/app.js"}>
+    </script>
+  </head>
+  <body class="bg-black antialiased font-mono text-base leading-7 text-zinc-300 m-8 mx-auto max-w-[95%] lg:max-w-[73%]">
+    <%= @inner_content %>
+  </body>
+</html>

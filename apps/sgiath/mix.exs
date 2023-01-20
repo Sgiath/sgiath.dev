@@ -8,7 +8,7 @@ defmodule Sgiath.MixProject do
       version: "0.1.0",
 
       # Elixir config
-      elixir: "~> 1.13",
+      elixir: "~> 1.14",
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
@@ -18,7 +18,7 @@ defmodule Sgiath.MixProject do
       build_path: "../../_build",
       config_path: "../../config/config.exs",
       deps_path: "../../deps",
-      lockfile: "../../mix.lock",
+      lockfile: "../../mix.lock"
     ]
   end
 
@@ -34,7 +34,7 @@ defmodule Sgiath.MixProject do
 
   defp deps do
     [
-      {:phoenix_pubsub, "~> 2.0"}
+      {:phoenix_pubsub, "~> 2.1"}
     ]
   end
 

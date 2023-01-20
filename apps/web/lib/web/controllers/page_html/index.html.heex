@@ -1,0 +1,62 @@
+<div class="grid grid-cols-2 sm:grid-cols-none gap-4">
+  <section>
+    <.title>about me</.title>
+    <p>~>H - on the mission to figure out if and how technology can bring me immortality</p>
+
+    <.subtitle>influential figures (in chronological order)</.subtitle>
+    <ul>
+      <%= for {text, link} <- @influencers do %>
+        <li>
+          <.external_link href={link}><%= text %></.external_link>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+
+  <section>
+    <.title>contact</.title>
+    <ul>
+      <%= for {technology, handle, href} <- @contacts do %>
+        <li>
+          <%= technology %> -
+          <.external_link href={href}><%= handle %></.external_link>
+        </li>
+      <% end %>
+    </ul>
+
+    <.title>social media</.title>
+    <ul>
+      <%= for {page, handle, href} <- @social do %>
+        <li>
+          <%= page %> -
+          <.external_link href={href}><%= handle %></.external_link>
+        </li>
+      <% end %>
+    </ul>
+
+    <.title>other links</.title>
+    <ul>
+      <li>
+        SourceHut -
+        <.external_link href="https://git.sr.ht/~sgiath/">~sgiath</.external_link>
+      </li>
+      <li>
+        PGP -
+        <.link href="/sgiath.asc" class="underline">0x70F9C7DE34CB3BC8</.link>
+      </li>
+      <li>
+        Bitcoin
+        <ul class="indent-10">
+          <li>
+            <.external_link href="https://paynym.is/+odddream4C9">+odddream4C9</.external_link>
+            (PayNym)
+          </li>
+          <li>
+            <.external_link href="https://lightning.sgiath.dev/tipjar/1">donation</.external_link>
+            (Lightning or on-chain)
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+</div>

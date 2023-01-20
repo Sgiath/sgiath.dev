@@ -7,7 +7,8 @@ defmodule Web.Endpoint do
   @session_options [
     store: :cookie,
     key: "_sgiath_key",
-    signing_salt: "aNniW2MV"
+    signing_salt: "aNniW2MV",
+    same_site: "Lax"
   ]
 
   socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
@@ -20,7 +21,7 @@ defmodule Web.Endpoint do
     at: "/",
     from: :web,
     gzip: true,
-    only: ~w(assets fonts images icons favicon.ico robots.txt sgiath.asc)
+    only: Web.static_paths()
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.

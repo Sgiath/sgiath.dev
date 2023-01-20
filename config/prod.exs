@@ -15,3 +15,9 @@ config :web, Web.Endpoint,
 
 # Do not print debug messages in production
 config :logger, level: :info
+
+config :os_mon,
+  start_cpu_sup: false,
+  start_disksup: false,
+  start_memsup: false,
+  start_os_sup: false

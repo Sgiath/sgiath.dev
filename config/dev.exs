@@ -7,8 +7,6 @@ import Config
 # watchers to your application. For example, we use it
 # with esbuild to bundle .js and .css sources.
 config :web, Web.Endpoint,
-  # Binding to loopback ipv4 address prevents access from other machines.
-  # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
   http: [ip: {127, 0, 0, 1}, port: 4000],
   check_origin: false,
   code_reloader: true,
@@ -16,7 +14,8 @@ config :web, Web.Endpoint,
   secret_key_base: "6LKMMgA+1TRNNr8z6KObCT7uqB1z6NoTevCvdJwOgdRSh3reR7K3NQwFLdaumq5Z",
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
+    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
+    tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
   ]
 
 # Watch static and templates for browser reloading.
@@ -24,8 +23,7 @@ config :web, Web.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|webp|png|jpeg|jpg|gif|svg)$",
-      ~r"lib/web/(live|views)/.*(ex)$",
-      ~r"lib/web/templates/.*(eex)$"
+      ~r"lib/web/(controllers|live|components)/.*(ex|heex)$"
     ]
   ]
 

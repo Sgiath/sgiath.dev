@@ -5,7 +5,7 @@ defmodule Web.Router do
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_live_flash
-    plug :put_root_layout, {Web.LayoutView, :root}
+    plug :put_root_layout, {Web.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
   end
@@ -16,9 +16,10 @@ defmodule Web.Router do
     get "/", PageController, :index
     get "/now", PageController, :now
     get "/uses", PageController, :uses
+    get "/nostr", PageController, :nostr
   end
 
-  if Mix.env() in [:dev, :test] do
+  if Application.compile_env(:web, :dev_routes, false) do
     import Phoenix.LiveDashboard.Router
 
     scope "/" do

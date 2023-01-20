@@ -38,30 +38,36 @@ defmodule Web.MixProject do
       {:sgiath, in_umbrella: true},
 
       # Phoenix
-      {:phoenix, "~> 1.6"},
-      {:phoenix_html, "~> 3.0"},
-      {:phoenix_live_view, "~> 0.17"},
-      {:phoenix_live_dashboard, "~> 0.6"},
-      {:esbuild, "~> 0.4", runtime: Mix.env() == :dev},
+      {:phoenix, "~> 1.7.0-rc.2", override: true},
+      {:phoenix_html, "~> 3.2"},
+      {:phoenix_live_view, "~> 0.18"},
+      {:phoenix_live_dashboard, "~> 0.7"},
+      {:heroicons, "~> 0.5"},
+      {:esbuild, "~> 0.6", runtime: Mix.env() == :dev},
+      {:tailwind, "~> 0.1.8", runtime: Mix.env() == :dev},
       {:jason, "~> 1.4"},
-      {:plug_cowboy, "~> 2.5"},
+      {:bandit, "~> 0.6"},
 
       # Telemetry
       {:telemetry_metrics, "~> 0.6"},
       {:telemetry_poller, "~> 1.0"},
 
       # Development
-      {:phoenix_live_reload, "~> 1.2", only: :dev},
+      {:phoenix_live_reload, "~> 1.4", only: :dev},
 
       # Tests
-      {:floki, ">= 0.33.0", only: :test}
+      {:floki, ">= 0.34.0", only: :test}
     ]
   end
 
   defp aliases do
     [
       setup: ["deps.get"],
-      "assets.deploy": ["esbuild default --minify", "phx.digest"]
+      "assets.deploy": [
+        "tailwind default --minify",
+        "esbuild default --minify",
+        "phx.digest"
+      ]
     ]
   end
 end
