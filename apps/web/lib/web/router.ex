@@ -17,6 +17,15 @@ defmodule Web.Router do
     get "/now", PageController, :now
     get "/uses", PageController, :uses
     get "/nostr", PageController, :nostr
+    get "/atak", PageController, :atak
+  end
+
+  scope "/presentations", Web do
+    pipe_through :browser
+
+    get "/", PresentationsController, :index
+    get "/elixir", PresentationsController, :elixir
+    get "/bitcoin", PresentationsController, :bitcoin
   end
 
   if Application.compile_env(:web, :dev_routes, false) do

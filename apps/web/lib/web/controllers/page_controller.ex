@@ -19,8 +19,9 @@ defmodule Web.PageController do
     ]
 
     social = [
-      {"Nostr", Phoenix.HTML.raw("00000[&hellip;]90672"),
-       "https://astral.ninja/0000002855ad7906a7568bf4d971d82056994aa67af3cf0048a825415ac90672"},
+      {"Nostr",
+       Phoenix.HTML.raw("npub1qqqqq2z444usdf6k306djuwcyptfjj4x0teu7qzg4qj5zkkfqeeq3hlwh5"),
+       "nostr:npub1qqqqq2z444usdf6k306djuwcyptfjj4x0teu7qzg4qj5zkkfqeeq3hlwh5"},
       {"Twitter", "@SgiathDev", "https://twitter.com/SgiathDev"},
       {"XMPP", "sgiath@sgiath.dev", "xmpp:sgiath@sgiath.dev"},
       {"Keybase", "sgiath", "https://keybase.io/sgiath"}
@@ -44,5 +45,9 @@ defmodule Web.PageController do
 
   def nostr(conn, _params) do
     render(conn, "nostr.html", page_title: "nostr")
+  end
+
+  def atak(conn, _params) do
+    render(conn, "atak.html", page_title: "ATAK")
   end
 end

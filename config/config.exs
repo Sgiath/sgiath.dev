@@ -3,7 +3,6 @@ import Config
 config :web,
   generators: [context_app: :sgiath]
 
-# Configures the endpoint
 config :web, Web.Endpoint,
   adapter: Bandit.PhoenixAdapter,
   url: [host: "localhost"],
@@ -14,9 +13,8 @@ config :web, Web.Endpoint,
   pubsub_server: Sgiath.PubSub,
   live_view: [signing_salt: "QUC+qRZg"]
 
-# Configure esbuild (the version is required)
 config :esbuild,
-  version: "0.16.6",
+  version: "0.17.19",
   default: [
     args: ~w(
         js/app.js
@@ -30,9 +28,8 @@ config :esbuild,
     env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
   ]
 
-# Configure tailwind (the version is required)
 config :tailwind,
-  version: "3.2.4",
+  version: "3.3.2",
   default: [
     args: ~w(
       --config=tailwind.config.js

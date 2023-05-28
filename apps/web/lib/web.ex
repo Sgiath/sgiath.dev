@@ -17,7 +17,7 @@ defmodule Web do
   and import those modules here.
   """
 
-  def static_paths, do: ~w(assets fonts images icons data favicon.ico robots.txt)
+  def static_paths, do: ~w(assets fonts images icons data favicon.ico robots.txt sgiath.asc)
 
   def router do
     quote do

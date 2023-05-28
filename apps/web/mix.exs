@@ -38,15 +38,15 @@ defmodule Web.MixProject do
       {:sgiath, in_umbrella: true},
 
       # Phoenix
-      {:phoenix, "~> 1.7.0-rc.2", override: true},
-      {:phoenix_html, "~> 3.2"},
+      {:phoenix, "~> 1.7"},
+      {:phoenix_html, "~> 3.3"},
       {:phoenix_live_view, "~> 0.18"},
       {:phoenix_live_dashboard, "~> 0.7"},
       {:heroicons, "~> 0.5"},
-      {:esbuild, "~> 0.6", runtime: Mix.env() == :dev},
-      {:tailwind, "~> 0.1.8", runtime: Mix.env() == :dev},
+      {:esbuild, "~> 0.7", runtime: Mix.env() == :dev},
+      {:tailwind, "~> 0.2", runtime: Mix.env() == :dev},
       {:jason, "~> 1.4"},
-      {:bandit, "~> 0.6"},
+      {:bandit, "~> 0.7"},
 
       # Telemetry
       {:telemetry_metrics, "~> 0.6"},
