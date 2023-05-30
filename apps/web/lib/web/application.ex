@@ -6,9 +6,7 @@ defmodule Web.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      # Start the Telemetry supervisor
-      Web.Telemetry,
-      # Start the Endpoint (http/https)
+      {Phoenix.PubSub, name: Sgiath.PubSub},
       Web.Endpoint
     ]
 

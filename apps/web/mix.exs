@@ -9,7 +9,6 @@ defmodule Web.MixProject do
       elixir: "~> 1.14",
 
       # Elixir config
-      elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps(),
@@ -29,34 +28,19 @@ defmodule Web.MixProject do
     ]
   end
 
-  defp elixirc_paths(:test), do: ["lib", "test/support"]
-  defp elixirc_paths(_), do: ["lib"]
-
   defp deps do
     [
-      # Umbrella
-      {:sgiath, in_umbrella: true},
-
       # Phoenix
       {:phoenix, "~> 1.7"},
+      {:phoenix_pubsub, "~> 2.1"},
       {:phoenix_html, "~> 3.3"},
       {:phoenix_live_view, "~> 0.19"},
-      {:phoenix_live_dashboard, "~> 0.8"},
-      {:heroicons, "~> 0.5"},
-      {:esbuild, "~> 0.7", runtime: Mix.env() == :dev},
       {:tailwind, "~> 0.2", runtime: Mix.env() == :dev},
       {:jason, "~> 1.4"},
       {:bandit, "~> 0.7"},
 
-      # Telemetry
-      {:telemetry_metrics, "~> 0.6"},
-      {:telemetry_poller, "~> 1.0"},
-
       # Development
-      {:phoenix_live_reload, "~> 1.4", only: :dev},
-
-      # Tests
-      {:floki, ">= 0.34.0", only: :test}
+      {:phoenix_live_reload, "~> 1.4", only: :dev}
     ]
   end
 
@@ -65,7 +49,6 @@ defmodule Web.MixProject do
       setup: ["deps.get"],
       "assets.deploy": [
         "tailwind default --minify",
-        "esbuild default --minify",
         "phx.digest"
       ]
     ]

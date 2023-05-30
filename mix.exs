@@ -20,7 +20,6 @@ defmodule Sgiath.Umbrella.MixProject do
           steps: [&assets/1, :assemble, :tar, &upload/1],
           include_executables_for: [:unix],
           applications: [
-            sgiath: :permanent,
             web: :permanent
           ]
         ]
@@ -30,8 +29,8 @@ defmodule Sgiath.Umbrella.MixProject do
 
   defp deps do
     [
-      # Required to run "mix format" on ~H/.heex files from the umbrella root
-      {:phoenix_live_view, "~> 0.18", override: true}
+      {:phoenix_live_view, "~> 0.19"},
+      {:ex_check, "~> 0.15", only: :dev}
     ]
   end
 
