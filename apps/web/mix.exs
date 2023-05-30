@@ -40,8 +40,8 @@ defmodule Web.MixProject do
       # Phoenix
       {:phoenix, "~> 1.7"},
       {:phoenix_html, "~> 3.3"},
-      {:phoenix_live_view, "~> 0.18"},
-      {:phoenix_live_dashboard, "~> 0.7"},
+      {:phoenix_live_view, "~> 0.19"},
+      {:phoenix_live_dashboard, "~> 0.8"},
       {:heroicons, "~> 0.5"},
       {:esbuild, "~> 0.7", runtime: Mix.env() == :dev},
       {:tailwind, "~> 0.2", runtime: Mix.env() == :dev},

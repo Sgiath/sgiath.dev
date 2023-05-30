@@ -31,7 +31,6 @@ defmodule Sgiath.Umbrella.MixProject do
   defp deps do
     [
       # Required to run "mix format" on ~H/.heex files from the umbrella root
-      {:phoenix, "~> 1.7"},
       {:phoenix_live_view, "~> 0.18", override: true}
     ]
   end
