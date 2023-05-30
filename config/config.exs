@@ -1,13 +1,10 @@
 import Config
 
-config :web,
-  generators: [context_app: :sgiath]
-
-config :web, Web.Endpoint,
+config :sgiath, Sgiath.Endpoint,
   adapter: Bandit.PhoenixAdapter,
   url: [host: "localhost"],
   render_errors: [
-    formats: [html: Web.ErrorHTML],
+    formats: [html: Sgiath.ErrorHTML],
     layout: false
   ],
   pubsub_server: Sgiath.PubSub,
@@ -21,7 +18,7 @@ config :tailwind,
       --input=css/app.css
       --output=../priv/static/assets/app.css
     ),
-    cd: Path.expand("../apps/web/assets", __DIR__)
+    cd: Path.expand("../assets", __DIR__)
   ]
 
 # Configures Elixir's Logger

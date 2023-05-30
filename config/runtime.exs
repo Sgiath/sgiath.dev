@@ -8,7 +8,7 @@ if config_env() == :prod do
       You can generate one by calling: mix phx.gen.secret
       """
 
-  config :web, Web.Endpoint,
+  config :sgiath, Sgiath.Endpoint,
     server: true,
     http: [
       ip: {127, 0, 0, 1},

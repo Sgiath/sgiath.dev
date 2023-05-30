@@ -1,5 +1,5 @@
-defmodule Web.PageController do
-  use Web, :controller
+defmodule Sgiath.PageController do
+  use Sgiath, :controller
 
   def index(conn, _params) do
     influencers = [

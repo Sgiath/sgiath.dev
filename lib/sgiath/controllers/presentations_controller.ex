@@ -1,5 +1,5 @@
-defmodule Web.PresentationsController do
-  use Web, :controller
+defmodule Sgiath.PresentationsController do
+  use Sgiath, :controller
 
   def index(conn, _params) do
     render(conn, "index.html", page_title: "presentations")

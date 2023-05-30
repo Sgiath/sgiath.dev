@@ -1,4 +1,4 @@
-defmodule Web.CoreComponents do
+defmodule Sgiath.CoreComponents do
   use Phoenix.Component
 
   @doc """

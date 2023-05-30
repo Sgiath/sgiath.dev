@@ -1,12 +1,12 @@
-defmodule Web do
+defmodule Sgiath do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use Web, :controller
-      use Web, :view
+      use Sgiath, :controller
+      use Sgiath, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -32,9 +32,9 @@ defmodule Web do
   def controller do
     quote do
       use Phoenix.Controller,
-        namespace: Web,
+        namespace: Sgiath,
         formats: [:html, :json],
-        layouts: [html: Web.Layouts]
+        layouts: [html: Sgiath.Layouts]
 
       import Plug.Conn
 
@@ -60,10 +60,7 @@ defmodule Web do
       # HTML escaping functionality
       import Phoenix.HTML
       # Core UI components and translation
-      import Web.CoreComponents
-
-      # Shortcut for generating JS commands
-      alias Phoenix.LiveView.JS
+      import Sgiath.CoreComponents
 
       # Routes generation with the ~p sigil
       unquote(verified_routes())
@@ -73,9 +70,9 @@ defmodule Web do
   def verified_routes do
     quote do
       use Phoenix.VerifiedRoutes,
-        endpoint: Web.Endpoint,
-        router: Web.Router,
-        statics: Web.static_paths()
+        endpoint: Sgiath.Endpoint,
+        router: Sgiath.Router,
+        statics: Sgiath.static_paths()
     end
   end
 

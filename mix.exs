@@ -1,10 +1,12 @@
-defmodule Sgiath.Umbrella.MixProject do
+defmodule Sgiath.MixProject do
   use Mix.Project
 
   def project do
     [
-      apps_path: "apps",
+      # Application config
+      app: :sgiath,
       version: "0.1.0",
+      elixir: "~> 1.14",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       aliases: aliases(),
@@ -20,28 +22,49 @@ defmodule Sgiath.Umbrella.MixProject do
           steps: [&assets/1, :assemble, :tar, &upload/1],
           include_executables_for: [:unix],
           applications: [
-            web: :permanent
+            sgiath: :permanent
           ]
         ]
       ]
     ]
   end
 
+  def application do
+    [
+      mod: {Sgiath.Application, []},
+      extra_applications: [:logger, :runtime_tools, :os_mon]
+    ]
+  end
+
   defp deps do
     [
+      # Phoenix
+      {:phoenix, "~> 1.7"},
+      {:phoenix_pubsub, "~> 2.1"},
+      {:phoenix_html, "~> 3.3"},
       {:phoenix_live_view, "~> 0.19"},
+      {:tailwind, "~> 0.2", runtime: Mix.env() == :dev},
+      {:jason, "~> 1.4"},
+      {:bandit, "~> 0.7"},
+
+      # Development
+      {:phoenix_live_reload, "~> 1.4", only: :dev},
       {:ex_check, "~> 0.15", only: :dev}
     ]
   end
 
   defp aliases do
     [
-      setup: ["cmd mix setup"]
+      setup: ["deps.get"],
+      "assets.deploy": [
+        "tailwind default --minify",
+        "phx.digest"
+      ]
     ]
   end
 
   defp assets(release) do
-    Mix.Task.run("cmd", ["--app", "web", "mix assets.deploy"])
+    Mix.Task.run("assets.deploy")
     release
   end
 

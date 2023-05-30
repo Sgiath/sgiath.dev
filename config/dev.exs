@@ -6,7 +6,7 @@ import Config
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with esbuild to bundle .js and .css sources.
-config :web, Web.Endpoint,
+config :sgiath, Sgiath.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4000],
   check_origin: false,
   code_reloader: true,
@@ -14,10 +14,7 @@ config :web, Web.Endpoint,
   secret_key_base: "6LKMMgA+1TRNNr8z6KObCT7uqB1z6NoTevCvdJwOgdRSh3reR7K3NQwFLdaumq5Z",
   watchers: [
     tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
-  ]
-
-# Watch static and templates for browser reloading.
-config :web, Web.Endpoint,
+  ],
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|webp|png|jpeg|jpg|gif|svg)$",

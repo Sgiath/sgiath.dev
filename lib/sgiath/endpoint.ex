@@ -1,5 +1,5 @@
-defmodule Web.Endpoint do
-  use Phoenix.Endpoint, otp_app: :web
+defmodule Sgiath.Endpoint do
+  use Phoenix.Endpoint, otp_app: :sgiath
 
   # Serve at "/" the static files from "priv/static" directory.
   #
@@ -7,9 +7,9 @@ defmodule Web.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :web,
+    from: :sgiath,
     gzip: true,
-    only: Web.static_paths()
+    only: Sgiath.static_paths()
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
@@ -30,5 +30,5 @@ defmodule Web.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
 
-  plug Web.Router
+  plug Sgiath.Router
 end

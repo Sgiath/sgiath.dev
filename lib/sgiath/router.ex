@@ -1,12 +1,12 @@
-defmodule Web.Router do
-  use Web, :router
+defmodule Sgiath.Router do
+  use Sgiath, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
-    plug :put_root_layout, {Web.Layouts, :root}
+    plug :put_root_layout, {Sgiath.Layouts, :root}
   end
 
-  scope "/", Web do
+  scope "/", Sgiath do
     pipe_through :browser
 
     get "/", PageController, :index
@@ -16,7 +16,8 @@ defmodule Web.Router do
     get "/atak", PageController, :atak
   end
 
-  scope "/presentations", Web do
+  # not actually used in production
+  scope "/presentations", Sgiath do
     pipe_through :browser
 
     get "/", PresentationsController, :index
