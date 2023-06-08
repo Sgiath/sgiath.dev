@@ -45,11 +45,12 @@ defmodule Sgiath.CoreComponents do
   @doc """
   Subtitle
   """
+  attr :id, :string
   slot :inner_block, required: true
 
   def subtitle(assigns) do
     ~H"""
-    <h3 class="text-[1.2rem] text-zinc-100 font-semibold mb-2 mt-8"><%= render_slot(@inner_block) %></h3>
+    <h3 id={@id} class="text-[1.2rem] text-zinc-100 font-semibold mb-2 mt-8"><%= render_slot(@inner_block) %></h3>
     """
   end
 

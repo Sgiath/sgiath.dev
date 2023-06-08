@@ -12,7 +12,7 @@ defmodule Sgiath.Router do
     get "/", PageController, :index
     get "/now", PageController, :now
     get "/uses", PageController, :uses
-    get "/nostr", PageController, :nostr
+    get "/libraries", PageController, :libraries
     get "/atak", PageController, :atak
   end
 

@@ -43,8 +43,8 @@ defmodule Sgiath.PageController do
     render(conn, "uses.html", page_title: "uses")
   end
 
-  def nostr(conn, _params) do
-    render(conn, "nostr.html", page_title: "nostr")
+  def libraries(conn, _params) do
+    render(conn, "libraries.html", page_title: "libraries")
   end
 
   def atak(conn, _params) do
