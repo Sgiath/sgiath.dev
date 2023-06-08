@@ -45,7 +45,7 @@ defmodule Sgiath.CoreComponents do
   @doc """
   Subtitle
   """
-  attr :id, :string
+  attr :id, :string, default: nil
   slot :inner_block, required: true
 
   def subtitle(assigns) do
