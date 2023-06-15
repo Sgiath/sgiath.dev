@@ -6,6 +6,10 @@ defmodule Sgiath.Router do
     plug :put_root_layout, {Sgiath.Layouts, :root}
   end
 
+  pipeline :xml do
+    plug :accepts, ["xml"]
+  end
+
   scope "/", Sgiath do
     pipe_through :browser
 
@@ -14,6 +18,12 @@ defmodule Sgiath.Router do
     get "/uses", PageController, :uses
     get "/libraries", PageController, :libraries
     get "/atak", PageController, :atak
+  end
+
+  scope "/", Sgiath do
+    pipe_through :xml
+
+    get "/sitemap", SitemapController, :index
   end
 
   # not actually used in production

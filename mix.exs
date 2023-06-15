@@ -46,6 +46,7 @@ defmodule Sgiath.MixProject do
       {:tailwind, "~> 0.2", runtime: Mix.env() == :dev},
       {:jason, "~> 1.4"},
       {:bandit, "~> 0.7"},
+      {:saxy, "~> 1.5"},
 
       # Development
       {:phoenix_live_reload, "~> 1.4", only: :dev},

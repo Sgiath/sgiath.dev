@@ -1,9 +1,9 @@
 <div class="grid grid-cols-2 gap-4">
   <section>
-    <.title>about me</.title>
+    <h2>about me</h2>
     <p>~>H - on the mission to figure out if and how technology can bring me immortality</p>
 
-    <.subtitle>influential figures (in chronological order)</.subtitle>
+    <h3>influential figures (in chronological order)</h3>
     <ul>
       <%= for {text, link} <- @influencers do %>
         <li>
@@ -14,7 +14,7 @@
   </section>
 
   <section>
-    <.title>contact</.title>
+    <h2>contact</h2>
     <ul>
       <%= for {technology, handle, href} <- @contacts do %>
         <li>
@@ -24,7 +24,7 @@
       <% end %>
     </ul>
 
-    <.title>social media</.title>
+    <h2>social media</h2>
     <ul>
       <%= for {page, handle, href} <- @social do %>
         <li>
@@ -34,7 +34,7 @@
       <% end %>
     </ul>
 
-    <.title>other links</.title>
+    <h2>other links</h2>
     <ul>
       <li>
         GitHub -

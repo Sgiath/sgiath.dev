@@ -33,7 +33,7 @@ defmodule Sgiath do
     quote do
       use Phoenix.Controller,
         namespace: Sgiath,
-        formats: [:html, :json],
+        formats: [:html],
         layouts: [html: Sgiath.Layouts]
 
       import Plug.Conn
