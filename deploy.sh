@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
 
-docker build --tag sgiath .
-docker save --output sgiath.tar sgiath
-scp sgiath.tar sgiath.dev:/tmp
-ssh sgiath.dev 'docker import /tmp/sgiath.tar sgiath && rm -f /tmp/sgiath.tar'
-# ssh sgiath.dev 'cd /home/sgiath/docker && docker compose restart sgiath'
+REF=$(git rev-parse --short HEAD)
+
+docker build \
+  --tag "sgitah/sgiath.dev:${REF}" \
+  --tag "sgiath/sgiath.dev:latest" \
+  .
+
+docker push "sgiath/sgiath.dev:${REF}"
+docker push "sgiath/sgiath.dev:latest"
+
+ssh sgiath.dev 'cd /data/server && docker compose pull && docker compose restart sgiath'

@@ -47,7 +47,7 @@ RUN mix compile
 # Changes to config/runtime.exs don't require recompiling the code
 COPY config/runtime.exs config/
 
-RUN mix release --path /release
+RUN mix release --path ./release
 
 # =================================================================================================
 # Runtime phase
@@ -72,9 +72,9 @@ RUN chown nobody /app
 ENV MIX_ENV=prod
 
 # Only copy the final release from the build stage
-COPY --from=builder --chown=nobody:root /release .
+COPY --from=builder --chown=nobody:root /app/release .
 
 USER nobody
 EXPOSE 4000
 
-CMD /app/bin/sgiath start
+CMD ["/app/bin/default", "start"]

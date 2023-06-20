@@ -17,7 +17,7 @@ defmodule Sgiath.MixProject do
 
       # Releases
       releases: [
-        sgiath: [
+        default: [
           include_executables_for: [:unix],
           applications: [
             sgiath: :permanent
