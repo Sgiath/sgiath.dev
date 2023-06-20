@@ -18,8 +18,6 @@ defmodule Sgiath.MixProject do
       # Releases
       releases: [
         sgiath: [
-          path: "release",
-          steps: [&assets/1, :assemble, :tar, &upload/1],
           include_executables_for: [:unix],
           applications: [
             sgiath: :permanent
@@ -57,24 +55,7 @@ defmodule Sgiath.MixProject do
   defp aliases do
     [
       setup: ["deps.get"],
-      "assets.deploy": [
-        "tailwind default --minify",
-        "phx.digest"
-      ]
+      "assets.deploy": [  "tailwind default --minify",  "phx.digest"]
     ]
-  end
-
-  defp assets(release) do
-    Mix.Task.run("assets.deploy")
-    release
-  end
-
-  defp upload(release) do
-    dest = "/data/sgiath.dev"
-    name = "#{release.name}-#{release.version}.tar.gz"
-    Mix.shell().cmd("scp #{release.path}/#{name} sgiath.dev:#{dest}")
-    Mix.shell().cmd("ssh sgiath.dev 'cd #{dest} && tar zxvf #{name}'")
-    Mix.shell().cmd("ssh sgiath.dev 'sudo systemctl restart sgiath-web.service'")
-    release
   end
 end
