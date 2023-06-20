@@ -43,7 +43,7 @@ defmodule Sgiath.MixProject do
       {:phoenix_live_view, "~> 0.19"},
       {:tailwind, "~> 0.2", runtime: Mix.env() == :dev},
       {:jason, "~> 1.4"},
-      {:bandit, "~> 0.7"},
+      {:bandit, "~> 1.0-pre"},
       {:saxy, "~> 1.5"},
 
       # Development

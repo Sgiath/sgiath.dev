@@ -10,6 +10,7 @@ import Config
 # which you should run after static files are built and
 # before starting your production server.
 config :sgiath, Sgiath.Endpoint,
+  http: [ip: {0, 0, 0, 0, 0, 0, 0, 0}, port: 4000],
   url: [scheme: "https", host: "sgiath.dev", port: 443],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
