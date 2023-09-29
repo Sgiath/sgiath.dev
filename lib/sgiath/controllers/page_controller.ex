@@ -46,8 +46,4 @@ defmodule Sgiath.PageController do
   def libraries(conn, _params) do
     render(conn, "libraries.html", page_title: "libraries")
   end
-
-  def atak(conn, _params) do
-    render(conn, "atak.html", page_title: "ATAK")
-  end
 end

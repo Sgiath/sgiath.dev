@@ -17,7 +17,6 @@ defmodule Sgiath.Router do
     get "/now", PageController, :now
     get "/uses", PageController, :uses
     get "/libraries", PageController, :libraries
-    get "/atak", PageController, :atak
   end
 
   scope "/", Sgiath do

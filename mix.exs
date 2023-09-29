@@ -40,7 +40,7 @@ defmodule Sgiath.MixProject do
       {:phoenix, "~> 1.7"},
       {:phoenix_pubsub, "~> 2.1"},
       {:phoenix_html, "~> 3.3"},
-      {:phoenix_live_view, "~> 0.19"},
+      {:phoenix_live_view, "~> 0.20"},
       {:tailwind, "~> 0.2", runtime: Mix.env() == :dev},
       {:jason, "~> 1.4"},
       {:bandit, "~> 1.0-pre"},
@@ -55,7 +55,7 @@ defmodule Sgiath.MixProject do
   defp aliases do
     [
       setup: ["deps.get"],
-      "assets.deploy": [  "tailwind default --minify",  "phx.digest"]
+      "assets.deploy": ["tailwind default --minify", "phx.digest"]
     ]
   end
 end

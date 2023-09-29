@@ -1,8 +1,19 @@
 # The directory Mix will write compiled artifacts to.
 /_build/
 /release/
-/priv/static/assets/
-/priv/static/*.gz
+/priv/static/
+!/priv/static/sgiath.asc
+!/priv/static/robots.txt
+!/priv/static/favicon.ico
+!/priv/static/data/bitcoin-cz.md
+!/priv/static/data/bitcoin-en.md
+!/priv/static/data/bitcoin.md
+!/priv/static/data/elixir.md
+!/priv/static/icons/favicon-16x16.png
+!/priv/static/icons/favicon-16x16.webp
+!/priv/static/icons/favicon-32x32.png
+!/priv/static/icons/favicon-32x32.webp
+!/priv/static/images/bitcoin_monetary_policy.jpg
 
 # If you run "mix test --cover", coverage assets end up here.
 /cover/

@@ -5,33 +5,27 @@
 
     <h3>influential figures (in chronological order)</h3>
     <ul>
-      <%= for {text, link} <- @influencers do %>
-        <li>
-          <.external_link href={link}><%= text %></.external_link>
-        </li>
-      <% end %>
+      <li :for={{text, link} <- @influencers}>
+        <.external_link href={link}><%= text %></.external_link>
+      </li>
     </ul>
   </section>
 
   <section>
     <h2>contact</h2>
     <ul>
-      <%= for {technology, handle, href} <- @contacts do %>
-        <li>
-          <%= technology %> -
-          <.external_link href={href}><%= handle %></.external_link>
-        </li>
-      <% end %>
+      <li :for={{technology, handle, href} <- @contacts}>
+        <%= technology %> -
+        <.external_link href={href}><%= handle %></.external_link>
+      </li>
     </ul>
 
     <h2>social media</h2>
     <ul>
-      <%= for {page, handle, href} <- @social do %>
-        <li>
-          <%= page %> -
-          <.external_link href={href}><%= handle %></.external_link>
-        </li>
-      <% end %>
+      <li :for={{page, handle, href} <- @social}>
+        <%= page %> -
+        <.external_link href={href}><%= handle %></.external_link>
+      </li>
     </ul>
 
     <h2>other links</h2>

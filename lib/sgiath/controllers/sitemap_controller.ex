@@ -10,7 +10,6 @@ defmodule Sgiath.SitemapController do
       ~p"/",
       ~p"/now",
       ~p"/uses",
-      ~p"/atak",
       ~p"/libraries",
       ~p"/presentations",
       ~p"/presentations/elixir",
