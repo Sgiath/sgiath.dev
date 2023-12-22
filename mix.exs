@@ -39,11 +39,11 @@ defmodule Sgiath.MixProject do
       # Phoenix
       {:phoenix, "~> 1.7"},
       {:phoenix_pubsub, "~> 2.1"},
-      {:phoenix_html, "~> 3.3"},
+      {:phoenix_html, "~> 4.0"},
       {:phoenix_live_view, "~> 0.20"},
       {:tailwind, "~> 0.2", runtime: Mix.env() == :dev},
       {:jason, "~> 1.4"},
-      {:bandit, "~> 1.0-pre"},
+      {:bandit, "~> 1.1"},
       {:saxy, "~> 1.5"},
 
       # Development
