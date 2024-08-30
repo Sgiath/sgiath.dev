@@ -24,7 +24,7 @@
     <ul>
       <li :for={{page, handle, href} <- @social}>
         <%= page %> -
-        <.external_link href={href}><%= handle %></.external_link>
+        <.external_link href={href} class="break-all"><%= handle %></.external_link>
       </li>
     </ul>
 

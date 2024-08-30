@@ -1,16 +1,12 @@
 const plugin = require("tailwindcss/plugin");
+const colors = require('tailwindcss/colors')
 
 module.exports = {
   content: ["../lib/sgiath.ex", "../lib/sgiath/**/*.*ex"],
   theme: {
     fontFamily: {
       mono: ["monospace"],
-    },
-    extend: {
-      colors: {
-        brand: "#FD4F00",
-      },
-    },
+    }
   },
   plugins: [
     require("@tailwindcss/forms"),

@@ -39,16 +39,16 @@ defmodule Sgiath.MixProject do
       # Phoenix
       {:phoenix, "~> 1.7"},
       {:phoenix_pubsub, "~> 2.1"},
-      {:phoenix_html, "~> 4.0"},
+      {:phoenix_html, "~> 4.1"},
       {:phoenix_live_view, "~> 0.20"},
       {:tailwind, "~> 0.2", runtime: Mix.env() == :dev},
       {:jason, "~> 1.4"},
-      {:bandit, "~> 1.1"},
+      {:bandit, "~> 1.5"},
       {:saxy, "~> 1.5"},
 
       # Development
-      {:phoenix_live_reload, "~> 1.4", only: :dev},
-      {:ex_check, "~> 0.15", only: :dev}
+      {:phoenix_live_reload, "~> 1.5", only: :dev},
+      {:ex_check, "~> 0.16", only: :dev}
     ]
   end
 

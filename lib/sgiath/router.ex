@@ -14,6 +14,7 @@ defmodule Sgiath.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/projects", PageController, :projects
     get "/now", PageController, :now
     get "/uses", PageController, :uses
     get "/libraries", PageController, :libraries

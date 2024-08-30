@@ -3,9 +3,9 @@
 REF=$(git rev-parse --short HEAD)
 
 docker build \
-  --tag "sgitah/sgiath.dev:${REF}" \
-  --tag "sgiath/sgiath.dev:latest" \
-  .
+	--tag "sgitah/sgiath.dev:${REF}" \
+	--tag "sgiath/sgiath.dev:latest" \
+	.
 
 docker push "sgiath/sgiath.dev:${REF}"
 docker push "sgiath/sgiath.dev:latest"
