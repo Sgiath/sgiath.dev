@@ -15,7 +15,7 @@ defmodule Sgiath.PageController do
       {"Web", "sgiath.dev", "https://sgiath.dev"},
       # {"Tor", Phoenix.HTML.raw("uckdsard[&hellip;]nyd.onion"),
       #  "http://uckdsardwfzfg3v5apl3lnm5p5irllqiwvia4olanhnbn5eselrftnyd.onion/"},
-      {"Email", "sgiath@sgiath.dev", "mailto:sgiath@sgiath.dev"}
+      {"Email", "FilipVavera@sgiath.dev", "mailto:FilipVavera@sgiath.dev"}
     ]
 
     social = [
@@ -23,8 +23,7 @@ defmodule Sgiath.PageController do
        Phoenix.HTML.raw("npub1qqqqq2z444usdf6k306djuwcyptfjj4x0teu7qzg4qj5zkkfqeeq3hlwh5"),
        "nostr:npub1qqqqq2z444usdf6k306djuwcyptfjj4x0teu7qzg4qj5zkkfqeeq3hlwh5"},
       {"Twitter", "@SgiathDev", "https://twitter.com/SgiathDev"},
-      {"XMPP", "sgiath@sgiath.dev", "xmpp:sgiath@sgiath.dev"},
-      {"Keybase", "sgiath", "https://keybase.io/sgiath"}
+      {"XMPP", "sgiath@sgiath.dev", "xmpp:sgiath@sgiath.dev"}
     ]
 
     render(conn, "index.html",

@@ -11,7 +11,7 @@ config :sgiath, Sgiath.Endpoint,
   live_view: [signing_salt: "QUC+qRZg"]
 
 config :tailwind,
-  version: "3.3.6",
+  version: "3.4.10",
   default: [
     args: ~w(
       --config=tailwind.config.js
