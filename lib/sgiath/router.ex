@@ -15,6 +15,7 @@ defmodule Sgiath.Router do
 
     get "/", PageController, :index
     get "/projects", PageController, :projects
+    get "/talks", PageController, :talks
     get "/now", PageController, :now
     get "/uses", PageController, :uses
     get "/libraries", PageController, :libraries

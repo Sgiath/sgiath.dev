@@ -42,6 +42,10 @@ defmodule Sgiath.PageController do
     render(conn, "projects.html", page_title: "projects")
   end
 
+  def talks(conn, _params) do
+    render(conn, "talks.html", page_title: "talks")
+  end
+
   def uses(conn, _params) do
     render(conn, "uses.html", page_title: "uses")
   end
