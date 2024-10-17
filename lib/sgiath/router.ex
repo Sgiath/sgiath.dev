@@ -4,6 +4,14 @@ defmodule Sgiath.Router do
   pipeline :browser do
     plug :accepts, ["html"]
     plug :put_root_layout, {Sgiath.Layouts, :root}
+    plug :protect_from_forgery
+    plug :put_secure_browser_headers
+  end
+
+  pipeline :api do
+    plug :accepts, ["json"]
+
+    plug CORSPlug
   end
 
   pipeline :xml do
@@ -34,5 +42,12 @@ defmodule Sgiath.Router do
     get "/", PresentationsController, :index
     get "/elixir", PresentationsController, :elixir
     get "/bitcoin", PresentationsController, :bitcoin
+  end
+
+  scope "/.well-known/matrix", Sgiath do
+    pipe_through :api
+
+    get "/server", MatrixController, :server
+    get "/client", MatrixController, :client
   end
 end

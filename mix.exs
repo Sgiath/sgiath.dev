@@ -45,6 +45,7 @@ defmodule Sgiath.MixProject do
       {:jason, "~> 1.4"},
       {:bandit, "~> 1.5"},
       {:saxy, "~> 1.5"},
+      {:cors_plug, "~> 3.0"},
 
       # Development
       {:phoenix_live_reload, "~> 1.5", only: :dev},
