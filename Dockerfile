@@ -54,7 +54,7 @@ RUN mix release --path ./release
 FROM ${RUNNER_IMAGE}
 
 # install runtime packages
-RUN apk add --no-cache --update libstdc++ openssl
+RUN apk add --no-cache --update libstdc++ openssl ncurses-libs
 
 # delete APK cache
 RUN rm -rf /var/cache/apk/*
