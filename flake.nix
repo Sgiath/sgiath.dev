@@ -3,39 +3,49 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    flake-utils = {
-      url = "github:numtide/flake-utils";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    parts.url = "github:hercules-ci/flake-parts";
   };
 
   outputs =
-    { nixpkgs, flake-utils, ... }:
-    flake-utils.lib.eachDefaultSystem (
-      system:
-      let
-        pkgs = import nixpkgs { inherit system; };
+    inputs@{ parts, ... }:
+    parts.lib.mkFlake { inherit inputs; } {
+      systems = [ "x86_64-linux" ];
 
-        erlang = pkgs.beam.interpreters.erlang_27;
-        beamPkgs = pkgs.beam.packagesWith erlang;
-        elixir = beamPkgs.elixir_1_17;
-      in
-      {
-        devShells.default = pkgs.mkShell {
-          buildInputs = with pkgs; [
-            glibcLocales
-            inotify-tools
-            git
+      perSystem =
+        { self', pkgs, ... }:
+        let
+          beamPackages = pkgs.beam_minimal.packages.erlang_27;
+          erlang = beamPackages.erlang;
+          elixir = beamPackages.elixir_1_17;
+        in
+        {
+          devShells.default = pkgs.mkShell {
+            buildInputs = with pkgs; [
+              elixir
+              nodejs_20
 
-            nodejs_20
-            elixir
-          ];
+              # dev tools
+              mix2nix
+              node2nix
+            ];
 
-          env = {
-            ERL_AFLAGS = "+pc unicode -kernel shell_history enabled";
-            ELIXIR_ERL_OPTIONS = "+sssdio 128";
+            env = {
+              ERL_AFLAGS = "+pc unicode -kernel shell_history enabled";
+              ELIXIR_ERL_OPTIONS = "+sssdio 128";
+            };
+          };
+          packages = {
+            default = self'.packages.sgiath-dev;
+            sgiath-dev = pkgs.callPackage ./default.nix { inherit beamPackages erlang elixir; };
+          };
+
+          apps = {
+            default = self'.apps.sgiath-dev;
+            auth = {
+              type = "app";
+              program = "${self'.packages.sgiath-dev}/bin/sgiath-dev";
+            };
           };
         };
-      }
-    );
+    };
 }

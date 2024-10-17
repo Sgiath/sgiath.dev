@@ -1,9 +1,9 @@
-ARG ELIXIR_VERSION=1.17.2
+ARG ELIXIR_VERSION=1.17.3
 ARG OTP_VERSION=27.0.1
-ARG DEBIAN_VERSION=bookworm-20240812-slim
+ARG ALPINE_VERSION=3.20.3
 
-ARG BUILDER_IMAGE="hexpm/elixir:${ELIXIR_VERSION}-erlang-${OTP_VERSION}-debian-${DEBIAN_VERSION}"
-ARG RUNNER_IMAGE="debian:${DEBIAN_VERSION}"
+ARG BUILDER_IMAGE="hexpm/elixir:${ELIXIR_VERSION}-erlang-${OTP_VERSION}-alpine-${ALPINE_VERSION}"
+ARG RUNNER_IMAGE="alpine:${DEBIAN_VERSION}"
 
 # =================================================================================================
 # Build phase
@@ -14,8 +14,7 @@ FROM ${BUILDER_IMAGE} as builder
 ENV MIX_ENV=prod
 
 # install build dependencies
-RUN apt-get update -y && apt-get install -y build-essential git \
-  && apt-get clean && rm -f /var/lib/apt/lists/*_*
+RUN apk update && apk --no-cache --update add build-base git nodejs npm
 
 # prepare build dir
 WORKDIR /app
@@ -54,15 +53,11 @@ RUN mix release --path ./release
 # =================================================================================================
 FROM ${RUNNER_IMAGE}
 
-RUN apt-get update -y && apt-get install -y libstdc++6 openssl libncurses5 locales \
-  && apt-get clean && rm -f /var/lib/apt/lists/*_*
+# install runtime packages
+RUN apk add --no-cache --update libstdc++ openssl
 
-# Set the locale
-RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && locale-gen
-
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
-ENV LC_ALL en_US.UTF-8
+# delete APK cache
+RUN rm -rf /var/cache/apk/*
 
 # setup workdir
 WORKDIR /app

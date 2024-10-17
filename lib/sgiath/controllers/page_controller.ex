@@ -13,8 +13,6 @@ defmodule Sgiath.PageController do
 
     contacts = [
       {"Web", "sgiath.dev", "https://sgiath.dev"},
-      # {"Tor", Phoenix.HTML.raw("uckdsard[&hellip;]nyd.onion"),
-      #  "http://uckdsardwfzfg3v5apl3lnm5p5irllqiwvia4olanhnbn5eselrftnyd.onion/"},
       {"Email", "FilipVavera@sgiath.dev", "mailto:FilipVavera@sgiath.dev"}
     ]
 
