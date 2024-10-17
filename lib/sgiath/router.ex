@@ -4,7 +4,6 @@ defmodule Sgiath.Router do
   pipeline :browser do
     plug :accepts, ["html"]
     plug :put_root_layout, {Sgiath.Layouts, :root}
-    plug :protect_from_forgery
     plug :put_secure_browser_headers
   end
 
