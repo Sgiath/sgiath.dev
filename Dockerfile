@@ -3,7 +3,7 @@ ARG OTP_VERSION=27.0.1
 ARG ALPINE_VERSION=3.20.3
 
 ARG BUILDER_IMAGE="hexpm/elixir:${ELIXIR_VERSION}-erlang-${OTP_VERSION}-alpine-${ALPINE_VERSION}"
-ARG RUNNER_IMAGE="alpine:${DEBIAN_VERSION}"
+ARG RUNNER_IMAGE="alpine:${ALPINE_VERSION}"
 
 # =================================================================================================
 # Build phase
