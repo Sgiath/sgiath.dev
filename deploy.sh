@@ -10,4 +10,4 @@ docker build \
 docker push "sgiath/sgiath.dev:${REF}"
 docker push "sgiath/sgiath.dev:latest"
 
-ssh sgiath.local 'cd /data/server && docker compose pull && docker compose up -d'
+ssh sgiath.local 'cd /data/server && docker compose -f sgiath.yaml pull && docker compose -f sgiath.yaml up -d'
